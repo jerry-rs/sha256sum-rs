@@ -1,0 +1,20 @@
+[package]
+name = "sha256sum-rs"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name="sha256sum"
+path="src/main.rs"
+
+[dependencies]
+clap = { version = "4.6", features = ["derive"] }
+faster-hex = "0.10"
+memmap2 = "0.9"
+ring = "0.17"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
